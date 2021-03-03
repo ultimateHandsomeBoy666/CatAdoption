@@ -18,14 +18,12 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class CatInfoActivity : AppCompatActivity() {
 
-    private val repository = (application as CatAdoptionApplication).repository
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val petId = intent.extras?.get("petId")
         setContent {
             MyTheme {
-                CatInfo(repository = repository, petId = petId as String?)
+                CatInfo(repository = (application as CatAdoptionApplication).repository, petId = petId as String?)
             }
         }
     }

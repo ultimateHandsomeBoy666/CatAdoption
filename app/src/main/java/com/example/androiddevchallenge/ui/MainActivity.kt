@@ -30,13 +30,11 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
 
-    private val repository = (application as CatAdoptionApplication).repository
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                MyApp(repository = repository)
+                MyApp(repository = (application as CatAdoptionApplication).repository)
             }
         }
     }
