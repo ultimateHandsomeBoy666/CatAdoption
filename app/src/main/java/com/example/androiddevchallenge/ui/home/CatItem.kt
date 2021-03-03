@@ -1,24 +1,27 @@
 package com.example.androiddevchallenge.ui.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import com.example.androiddevchallenge.R
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.example.androiddevchallenge.data.impl.cats
+import androidx.compose.ui.unit.sp
+import com.example.androiddevchallenge.data.impl.cat1
 import com.example.androiddevchallenge.model.Cat
+import com.example.androiddevchallenge.model.Sex
 
 
 @Composable
@@ -29,7 +32,9 @@ fun CatItem(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(horizontal = 20.dp),
+            .padding(horizontal = 16.dp)
+            .clip(shape = RoundedCornerShape(size = 24.dp))
+            .background(color = colorResource(id = R.color.yellow)),
     ) {
         Image(
             modifier = Modifier
@@ -41,17 +46,88 @@ fun CatItem(
         )
         Column(
             modifier = Modifier
+                .height(height = 160.dp)
                 .fillMaxWidth()
-                .height(height = 112.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
+                .align(alignment = Alignment.CenterVertically),
         ) {
+            Row(
+                modifier = Modifier
+                    .wrapContentSize()
+                    .align(alignment = Alignment.CenterHorizontally)
+            ) {
+                Text(
+                    modifier = Modifier
+                        .wrapContentSize()
+                        .padding(vertical = 8.dp),
+                    text = cat.name,
+                    color = colorResource(id = R.color.white),
+                    fontSize = 24.sp,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(
+                    modifier = Modifier
+                        .width(8.dp)
+                )
+                Icon(
+                    modifier = Modifier
+                        .size(20.dp, 20.dp)
+                        .align(alignment = Alignment.CenterVertically),
+                    painter = painterResource(id = getCatSexResId(cat)),
+                    contentDescription = "",
+                    tint = colorResource(id = R.color.pink)
+                )
+            }
             Text(
                 modifier = Modifier
-                    .wrapContentSize(),
-                text = "!!!!!!!!@!@#!@#!#!@#@!",
-                color = Color.Black
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                text = cat.breed,
+                color = colorResource(id = R.color.grey_white),
+                fontSize = 14.sp,
+                textAlign = TextAlign.Center
+            )
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                text = cat.age,
+                color = colorResource(id = R.color.grey_white),
+                fontSize = 14.sp,
+                textAlign = TextAlign.Center
+            )
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                textAlign = TextAlign.Center,
+                text = getCatColor(cat),
+                color = colorResource(id = R.color.grey_white),
+                fontSize = 14.sp,
+            )
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                text = "${cat.weight} pounds",
+                color = colorResource(id = R.color.grey_white),
+                fontSize = 14.sp,
+                textAlign = TextAlign.Center
             )
         }
+    }
+}
+
+fun getCatSexResId(cat: Cat): Int {
+    return if (cat.sex == Sex.Female) R.drawable.ic_female else R.drawable.ic_male
+}
+
+fun getCatColor(cat: Cat): String {
+    val primaryColor = cat.primaryColor ?: ""
+    val secondColor = cat.secondaryColor ?: ""
+    return when {
+        cat.primaryColor == null -> secondColor
+        cat.secondaryColor == null -> primaryColor
+        else -> "$primaryColor & $secondColor"
     }
 }
 
@@ -59,6 +135,6 @@ fun CatItem(
 @Composable
 fun CardItemPreview() {
     Surface {
-        CatItem(cats[1])
+        CatItem(cat1)
     }
 }

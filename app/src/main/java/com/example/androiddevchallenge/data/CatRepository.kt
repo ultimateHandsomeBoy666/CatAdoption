@@ -4,7 +4,7 @@ import com.example.androiddevchallenge.model.Cat
 
 interface CatRepository {
 
-    suspend fun getCats(): Result<List<Cat>>
+    fun getCats(): Result<List<Cat>>
 
-    suspend fun getCat(catId: String): Result<Cat>
+    fun getCat(catId: String): Result<Cat>
 }

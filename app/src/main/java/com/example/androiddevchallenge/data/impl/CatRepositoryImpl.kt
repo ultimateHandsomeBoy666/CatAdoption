@@ -10,28 +10,23 @@ import kotlin.random.Random
 
 class CatRepositoryImpl : CatRepository {
 
-    override suspend fun getCats(): Result<List<Cat>> {
-        return withContext(Dispatchers.IO) {
-            delay(800)
-            if (shouldRandomlyFail()) {
-                Result.Error(IllegalStateException())
-            } else {
-                Result.Success(cats)
-            }
+    override fun getCats(): Result<List<Cat>> {
+        return if (shouldRandomlyFail()) {
+                    Result.Error(IllegalStateException())
+                } else {
+                    Result.Success(cats)
+                }
+    }
+
+    override fun getCat(catId: String): Result<Cat> {
+        val cat = cats.find { it.petId == catId }
+        if (cat == null) {
+            return Result.Error(IllegalArgumentException("Cat not found"))
+        } else {
+            return Result.Success(cat)
         }
     }
 
-    override suspend fun getCat(catId: String): Result<Cat> {
-        return withContext(Dispatchers.IO) {
-            val cat = cats.find { it.petId == catId }
-            if (cat == null) {
-                Result.Error(IllegalArgumentException("Cat not found"))
-            } else {
-                Result.Success(cat)
-            }
-        }
-    }
-
-    private fun shouldRandomlyFail(): Boolean = Random(1).nextInt(1, 100) == 50
+    private fun shouldRandomlyFail(): Boolean = Random(1).nextInt(1, 100) == 200
 
 }
