@@ -1,7 +1,10 @@
 package com.example.androiddevchallenge.ui.home
 
+import android.app.Activity
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import com.example.androiddevchallenge.R
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -22,19 +26,25 @@ import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.data.impl.cat1
 import com.example.androiddevchallenge.model.Cat
 import com.example.androiddevchallenge.model.Sex
+import com.example.androiddevchallenge.ui.CatInfoActivity
 
 
 @Composable
 fun CatItem(
     cat: Cat
 ) {
+    val context = LocalContext.current
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(horizontal = 16.dp)
             .clip(shape = RoundedCornerShape(size = 24.dp))
-            .background(color = colorResource(id = R.color.yellow)),
+            .background(color = colorResource(id = R.color.yellow))
+            .clickable {
+                val intent = Intent(context, CatInfoActivity::class.java)
+                context.startActivity(intent)
+            },
     ) {
         Image(
             modifier = Modifier

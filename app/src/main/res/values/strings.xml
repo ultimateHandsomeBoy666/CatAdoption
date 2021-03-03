@@ -10,4 +10,7 @@
       the License.
       -->
     <string name="app_name">CatAdoption</string>
+    <string name="adoption_info">Adoption Fees:\nKittens under 1 year old - $60\nCats over 1 year old - $50\nAmbassador pets have a raised adoption fee that helps lend a paw to other pets looking for a forever home.
+        \nAll of our adoptable animals are up to date on vaccinations, spayed/neutered, de-wormed, microchipped, and free of parasites such as fleas and ticks.
+        \nUpon adoption, new pet parents are sent home with their new cat\'s first 6 months of heartworm prevention, city license, a starter bag of H-E-B Heritage Ranch food, and a voucher for a free wellness exam at participating veterinarians.</string>
 </resources>

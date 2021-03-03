@@ -13,7 +13,6 @@ data class Cat(
     val primaryColor: String? = null,
     val secondaryColor: String? = null,
     val weight: String,
-    val shelter: Shelter = Shelter
 )
 
 enum class Sex(val sex: String) {

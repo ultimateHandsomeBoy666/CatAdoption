@@ -20,10 +20,10 @@ class CatRepositoryImpl : CatRepository {
 
     override fun getCat(catId: String): Result<Cat> {
         val cat = cats.find { it.petId == catId }
-        if (cat == null) {
-            return Result.Error(IllegalArgumentException("Cat not found"))
+        return if (cat == null) {
+            Result.Error(IllegalArgumentException("Cat not found"))
         } else {
-            return Result.Success(cat)
+            Result.Success(cat)
         }
     }
 
