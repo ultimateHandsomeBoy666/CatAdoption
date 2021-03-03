@@ -1,15 +1,17 @@
-# Put title of your app here
+# CatAdoption
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
-![Workflow result](https://github.com/<OWNER>/<REPOSITORY>/workflows/Check/badge.svg)
+![Workflow result](https://github.com/ultimateHandsomeBoy666/CatAdoption/workflows/Check/badge.svg)
 
 
-## :scroll: Description
+## :scroll: Adopt a cat!
 <!--- Describe your app in one or two sentences -->
 
 
-## :bulb: Motivation and Context
+## :bulb: I just knew this challenge 2 days before it's end, cost me 1 night to finish it without sleeping, it may not be
+beautiful though, but I've tried my best, after all I never learned about compose before this challenge.
+And I even register a twitter account for this challenge ^ ^.
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
 
