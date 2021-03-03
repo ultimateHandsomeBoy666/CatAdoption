@@ -69,7 +69,7 @@ fun CatInfoScreen(cat: Cat) {
                     .wrapContentHeight()
                     .fillMaxWidth()
                     .padding(horizontal = 48.dp)
-                    .padding(vertical = 8.dp)
+                    .shadow(elevation = 4.dp)
                     .clip(shape = RoundedCornerShape(size = 18.dp))
                     .background(color = colorResource(id = R.color.white))
                     .constrainAs(card) {
@@ -78,7 +78,6 @@ fun CatInfoScreen(cat: Cat) {
                         top.linkTo(img.bottom)
                         bottom.linkTo(img.bottom)
                     }
-                    .shadow(elevation = 4.dp)
             ) {
                 Text(
                     modifier = Modifier
@@ -115,6 +114,7 @@ fun CatInfoScreen(cat: Cat) {
                 Text(
                     modifier = Modifier
                         .wrapContentSize()
+                        .padding(bottom = 8.dp)
                         .align(Alignment.CenterHorizontally),
                     text = "${cat.weight} pounds",
                     textAlign = TextAlign.Center,
@@ -124,7 +124,6 @@ fun CatInfoScreen(cat: Cat) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()
-                    .padding(horizontal = 16.dp)
                     .constrainAs(text) {
                         start.linkTo(parent.start)
                         end.linkTo(parent.end)

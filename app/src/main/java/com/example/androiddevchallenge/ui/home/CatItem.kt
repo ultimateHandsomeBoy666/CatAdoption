@@ -43,6 +43,7 @@ fun CatItem(
             .background(color = colorResource(id = R.color.yellow))
             .clickable {
                 val intent = Intent(context, CatInfoActivity::class.java)
+                intent.putExtra("petId", cat.petId)
                 context.startActivity(intent)
             },
     ) {
