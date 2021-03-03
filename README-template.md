@@ -9,8 +9,8 @@
 <!--- Describe your app in one or two sentences -->
 
 
-## :bulb: I just knew this challenge 2 days before it's end, cost me 1 night to finish it without sleeping, it may not be
-beautiful though, but I've tried my best, after all I never learned about compose before this challenge.
+## :bulb: I just knew this challenge 2 days before it's end, cost me 1 night to finish it without sleeping
+it may not bebeautiful though, but I've tried my best, after all I never learned about compose before this challenge.
 And I even register a twitter account for this challenge ^ ^.
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
